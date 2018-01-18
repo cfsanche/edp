@@ -21,7 +21,7 @@ img1 = np.float32(img)
 img1 = img1/255
 rows,cols,dim=img1.shape
 
-rh, rl, cutoff = 2,0.5,10
+rh, rl, cutoff = 1.5,0.5,10
 
 imgYCrCb = cv2.cvtColor(img1, cv2.COLOR_BGR2YCrCb)
 y,cr,cb = cv2.split(imgYCrCb)
