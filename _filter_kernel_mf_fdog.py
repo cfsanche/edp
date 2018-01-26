@@ -33,7 +33,7 @@ def _filter_kernel_mf_fdog(L, sigma, t = 3, mf = True): #mf = true == second div
 
     @vectorize(['float32(float32)'], target='cpu')
     def k_fun(x):
-        return sqrt_w_pi_sigma * exp(-x * x / two_sigma_sq) #(x*x - sigma*sigma)*
+        return -exp(-x * x / two_sigma_sq) #(x*x - sigma*sigma)*
 
     @vectorize(['float32(float32)'], target='cpu')
     def k_fun_derivative(x):

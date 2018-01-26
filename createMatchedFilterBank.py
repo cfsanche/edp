@@ -20,7 +20,7 @@ def createMatchedFilterBank(K, n = 12):
         r_mat = cv2.getRotationMatrix2D(center, cur_rot, 1)
         k = cv2.warpAffine(K, r_mat, (K.shape[1], K.shape[0]))
         kernels.append(k)
-
+        #cur_rot += rotate
     return kernels
 
 def applyFilters(im, kernels):
