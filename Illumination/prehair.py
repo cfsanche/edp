@@ -2,6 +2,8 @@
 """
 NOTES:
     - must put "\\" to open file paths 
+    
+    @author: Camila and Hadeer
 """
 import numpy as np
 import cv2 #step1
@@ -14,10 +16,14 @@ import cv2 #step1
 # http://biomedpharmajournal.org/vol7no2/image-sharpening-by-gaussian-and-butterworth-high-pass-filter/
 # http://www.ipcsit.com/vol45/015-ICIKM2012-M0029.pdf
 
-img = cv2.imread('C:\\Users\\Camila\\Pictures\\Capstone\\ISIC_0000043.jpg',1) # 0 = grayscale
+img = cv2.imread('C:\\Users\\Camila\\Documents\\EDP\\Dataset\\ISIC_0000028.jpg',1) # 0 = grayscale
 # ISIC_0009953
 # ISIC_0000042
 # ISIC_0000043
+
+# ISIC_0000027
+# ISIC_0000028
+# ISIC_0000029
 
 img1 = np.float32(img)
 img1 = img1/255
@@ -50,11 +56,12 @@ result = cv2.cvtColor(result,cv2.COLOR_YCrCb2BGR)
 img = cv2.resize(img,(752,565))
 result_save = result*255
 cv2.imwrite('correction_test.jpg',result_save)
-img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 #result = cv2.cvtColor(result,cv2.COLOR_BGR2GRAY)
-result_show = cv2.resize(result,(752,565))
+result_show = cv2.resize(result,(np.around(cols/2).astype(int),np.around(rows/2).astype(int)))
 cv2.imshow('image1',img)
 cv2.imshow('image2',result_show)
 cv2.waitKey(0) #necessary? -yes
+cv2.destroyAllWindows()
 result_save = result*255
-cv2.imwrite('correction_test3.jpg',result_save)
+cv2.imwrite('correction_test5.jpg',result_save)

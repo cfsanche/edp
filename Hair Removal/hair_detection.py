@@ -2,7 +2,10 @@
 """
 Created on Thu Jan 18 10:39:34 2018
 
-@author: Camila
+Notes:
+    1. fix image import and save name to variable
+
+@author: Camila and Mani
 """
 import numpy as np
 import cv2 
@@ -12,7 +15,7 @@ from show_images import show_images
 import createMatchedFilterBank as mffilt
 from matplotlib import pyplot as plt
 
-img = cv2.imread('correction_test2.jpg',0) # 0 = grayscale
+img = cv2.imread('C:\\Users\\Camila\\Documents\\EDP\\Illumination\\correction_test2.jpg',0) # 0 = grayscale
 # C:\\Users\\Camila\\Pictures\\Capstone\\ISIC_0009953 #correction_test
 #cv2.imshow('image2',img)
 #cv2.waitKey(0)
@@ -69,24 +72,27 @@ cv2.imshow('first deriv gaussian',result_gf)
 cv2.imshow('original',img)
 
 # threshold first deriv
-thresh = cv2.adaptiveThreshold(result_gf,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,3,5)
+
+thresh = cv2.adaptiveThreshold(result_gf,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,3,8)
 blur = cv2.GaussianBlur(thresh, (5,5), 0)
 
 _, th3 = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 imgplot = plt.imshow(blur)
 plt.show()
 temp=cv2.Canny(result_gf,80,500)
-cv2.imshow('th3',temp)
-cv2.waitKey(0)
+
 cv2.destroyAllWindows()
-median = cv2.medianBlur(thresh,3)
-
-
-kernel = np.ones((2,2),np.uint8)
-opening = cv2.morphologyEx(th3,cv2.MORPH_OPEN,kernel)
-dilate = cv2.dilate(th3,kernel,iterations=10)
-closing = cv2.morphologyEx(dilate,cv2.MORPH_CLOSE,kernel)
-cv2.imshow('final',opening)
+median = cv2.medianBlur(th3,3)
+cv2.imshow('th3',th3)
 cv2.waitKey(0)
+
+kernelo = np.ones((2,2),np.uint8)
+#remove noise
+opening = cv2.morphologyEx(th3,cv2.MORPH_OPEN,kernelo)
+
+cv2.imwrite('hairdetect2.jpg',opening)
+#cv2.imshow('final',closing)
+#cv2.imshow('opening',opening)
+#cv2.waitKey(0)
 
 cv2.destroyAllWindows()
