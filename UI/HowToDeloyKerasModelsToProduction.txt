@@ -1,0 +1,42 @@
+How To Deploy Keras Models to Production:
+
+1. Train model with Keras [x]
+2. Save our model
+3. Write out Flask backend to serve our saved model (dep calsses- load.py)
+4. Deploy our code to Google Cloud
+
+Flask - backend code in Python (simplest way)
+Install: pip install flask 
+
+Save two files
+- json file (the architevture)
+- weights (parameters of the trained model)
+	- load both later with flask 
+
+Flask dependencies
+- render_template - lets us define a stand alone HTML and call it 
+- request - handle GET, SET, POST
+- scipy.misc import imsave, imread, imresize - format input image
+	
+- numpy (?)
+- keras.model - to upload our model
+- re - used ot handle huge string data
+- sys - system level operations (ex. load file)
+- os - operating system data
+
+Global variables
+- model - encapsulate model
+- graph - similar to session info
+
+
+Files:
+train.py - train model
+load.py - formats model and graph 
+app.py - with flask web app 
+index.html - format with ajaxindex.js - track mouse movements (dont need)
+
+Impload to Cloud
+- gcloud app deploy
+- gcloud app browse
+- need to download sdk (before you begin)
+

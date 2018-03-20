@@ -6,7 +6,7 @@ CREDIT TO
 """
 import cv2
 import numpy as np
-def createMatchedFilterBank(K, n = 12):
+def createMatchedFilterBank(K, n = 18):
     '''
     Given a kernel, create matched filter bank
     '''

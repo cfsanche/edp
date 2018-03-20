@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <div class="container-fluid">
+  <div class="row" style="padding:15px;">
+	<div class="col-10" style="color:white; font-size:20px; font-weight: bold;">
+		<p>Computer Aided Diagnosis</p>
+	</div>
+	<div class="col-2">
+		<div class="row">
+			<div class="col-6" style="color:white; padding-top:5px; font-size:15px; text-align:right;">
+				<p>About</p>
+			</div>
+			<div class="col-6" style="color:white; padding-top:5px; font-size:15px; text-align:right;">
+				<p>Contributors</p>
+			</div>
+		</div>
+	</div>
+  </div>
+ </head>
+<body background="image2.png">
+
+	<div class="row">
+		<div class="col-12" style="color:white; text-align:center; font-size:60px; padding-top:10%;">
+			<h1 style="font-size:45px;">Classifying Malignant Melanoma</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p style="color:white; text-align:center; padding-top:30px;">Upload an image of a skin lesion to run through the trained convolutional neural network and find out the prediction.</p>
+	<div class="row">
+		<div class="col-12" style="text-align:center; padding-top:20px;">
+			<button type="button" class="btn btn-lg" name="upload action="{{url_for('upload')}}">Upload Image</button>		
+		</div>
+	</div>
+
+</body>
+</html>
+<style>
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+</style>
+
